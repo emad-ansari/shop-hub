@@ -10,6 +10,7 @@ interface OrderItem {
 
 export interface OrderDoc extends mongoose.Document {
   name: string;
+  email: string;
   total: number;
   items: OrderItem[];
   createdAt: Date;
@@ -28,6 +29,8 @@ const orderItemSchema = new mongoose.Schema<OrderItem>(
 
 const orderSchema = new mongoose.Schema<OrderDoc>(
   {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
     total: { type: Number, required: true },
     items: { type: [orderItemSchema], required: true },
   },

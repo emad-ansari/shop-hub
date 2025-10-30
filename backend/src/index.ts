@@ -13,9 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use(productsRouter);
-app.use(cartRouter);
-app.use(checkoutRouter);
+app.use('/api/products', productsRouter);
+app.use('/api', cartRouter);
+app.use('/api', checkoutRouter);
 
 const start = async () => {
 	await connectDB();
